@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>FVS | Melhor da Serra da Ibiapaba</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f4f1 0%, #ece5da 100%);
+            font-family: 'Inter', sans-serif;
+            color: #2D3E2B;
+            scroll-behavior: smooth;
+        }
+
+        /* paleta inspirada na natureza vibrante da Ibiapaba + identidade da FVS */
+        :root {
+            --verde-serra: #0b85bd;     /* verde profundo, natureza */
+            --verde-claro: #4CAF50;
+            --detalhe-ouro: #E6B422;    /* toque de sol / acolhimento */
+            --areia: #FAF3E0;
+            --caramelo: #C27E3A;
+            --azul-celeste: #4B9F8C;    /* frescor serra */
+            --cinza-elegante: #F5F2E6;
+            --sombra-suave: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            --card-border: 1px solid rgba(44, 110, 60, 0.12);
+        }
+
+        /* header superior com logo da instituição (FVS) */
+        .top-brand-bar {
+            background-color: white;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+            border-bottom: 2px solid var(--detalhe-ouro);
+        }
+
+        .logo-fvs {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .logo-fvs i {
+            font-size: 2.4rem;
+            color: var(--verde-serra);
+            background: #F0F7E6;
+            padding: 12px;
+            border-radius: 60px;
+        }
+
+        .logo-fvs h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--verde-serra) 20%, var(--azul-celeste) 90%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo-fvs span {
+            font-weight: 500;
+            font-size: 0.9rem;
+            background: var(--areia);
+            padding: 5px 12px;
+            border-radius: 40px;
+            color: var(--caramelo);
+        }
+
+        /* Hero principal com cores institucionais */
+        .hero-section {
+            background: linear-gradient(120deg, var(--verde-serra) 0%, #1F5430 100%);
+            color: white;
+            padding: 48px 24px 56px;
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: "🏞️";
+            font-size: 180px;
+            opacity: 0.08;
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.2;
+        }
+
+        .hero-title i {
+            color: var(--detalhe-ouro);
+            margin-right: 6px;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 12px;
+            opacity: 0.92;
+            background: rgba(0,0,0,0.15);
+            display: inline-block;
+            padding: 6px 24px;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+        }
+
+        .tagline {
+            font-size: 1rem;
+            margin-top: 24px;
+            font-weight: 300;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+            padding-top: 12px;
+        }
+
+        .instrucao-modern {
+            text-align: center;
+            margin: 40px 20px 20px;
+            font-weight: 600;
+            background: white;
+            display: inline-block;
+            width: auto;
+            padding: 10px 28px;
+            border-radius: 50px;
+            box-shadow: var(--sombra-suave);
+            color: var(--verde-serra);
+            font-size: 0.95rem;
+        }
+
+        .instrucao-modern i {
+            margin-right: 10px;
+            color: var(--detalhe-ouro);
+        }
+
+        /* Container dos cards */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+            align-items: center;
+            padding: 20px 24px 60px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 32px;
+            padding: 28px 28px 32px;
+            max-width: 780px;
+            width: 100%;
+            box-shadow: var(--sombra-suave);
+            transition: all 0.35s ease;
+            border: var(--card-border);
+            position: relative;
+            backdrop-filter: blur(0px);
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 40px -18px rgba(44, 110, 60, 0.25);
+            border-color: var(--verde-claro);
+        }
+
+        .section-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin: 0 0 12px 0;
+            color: var(--verde-serra);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 5px solid var(--detalhe-ouro);
+            padding-left: 20px;
+        }
+
+        .section-card h3 i {
+            font-size: 2rem;
+            color: var(--azul-celeste);
+        }
+
+        .botoes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: flex-start;
+            margin: 20px 0 10px;
+        }
+
+        button {
+            background: #F1F7ED;
+            border: 1.5px solid #DBEAD5;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            color: #0b85bd;
+            font-family: 'Inter', sans-serif;
+            box-shadow: none;
+        }
+
+        button i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: var(--verde-serra);
+            border-color: var(--verde-serra);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        button.ativo {
+            background: var(--verde-serra);
+            color: white;
+            border-color: var(--verde-serra);
+            box-shadow: 0 8px 18px rgba(44, 110, 60, 0.3);
+        }
+
+        .resultado {
+            margin-top: 28px;
+            width: 100%;
+        }
+
+        .static-content {
+            background: var(--cinza-elegante);
+            border-radius: 28px;
+            padding: 28px;
+            border-left: 6px solid var(--detalhe-ouro);
+            animation: fadeSlideUp 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .static-content img {
+            max-width: 100%;
+            border-radius: 24px;
+            margin: 16px 0;
+            box-shadow: 0 12px 18px -10px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .static-content h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 8px 0 12px;
+            color: var(--verde-serra);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .static-content h4 i {
+            color: var(--detalhe-ouro);
+            font-size: 1.6rem;
+        }
+
+        .static-content p, .static-content li {
+            line-height: 1.55;
+            color: #0b85bd;
+        }
+
+        .static-content ul {
+            padding-left: 24px;
+            margin: 14px 0;
+        }
+
+        .static-content li {
+            margin: 8px 0;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            background: #0b85bd;
+            color: #E0E9D6;
+            text-align: center;
+            padding: 36px 20px;
+            margin-top: 20px;
+            border-radius: 32px 32px 0 0;
+        }
+
+        footer .footer-content i {
+            color: var(--detalhe-ouro);
+            margin: 0 4px;
+        }
+
+        footer a {
+            color: var(--detalhe-ouro);
+            text-decoration: none;
+        }
+
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .section-card h3 {
+                font-size: 1.4rem;
+                flex-wrap: wrap;
+            }
+            button {
+                padding: 8px 18px;
+                font-size: 0.8rem;
+            }
+            .static-content {
+                padding: 18px;
+            }
+        }
+
+        .badge-nature {
+            background: rgba(230, 180, 34, 0.18);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            margin-left: 12px;
+            font-weight: 400;
+            color: #B47C2E;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-brand-bar">
+    <div class="logo-fvs">
+        <i class="fas fa-mountain"></i>
+        <h2>FVS <span style="font-size: 1rem;">Serra da Ibiapaba</span></h2>
+        <span><i class="fas fa-leaf"></i> essência natural</span>
+    </div>
+</div>
+
+<div class="hero-section">
+    <div class="hero-title">
+        <i class="fas fa-star-of-life"></i> A MELHOR da SERRA da IBIAPABA
+    </div>
+    <div class="hero-sub">
+        <i class="fas fa-feather-alt"></i> Descubra as Maravilhas e Experiências Únicas
+    </div>
+    <div class="tagline">
+        <i class="fas fa-tree"></i> Tradição que floresce | FVS - referência em educação, cultura e acolhimento
+    </div>
+</div>
+
+<div style="text-align: center;">
+    <div class="instrucao-modern">
+        <i class="fas fa-hand-peace"></i> Toque nos botões e viva cada experiência única da nossa serra
+    </div>
+</div>
+
+<div class="buttons-container">
+    
+    <!-- CARD 1: Educação Infantil -> adaptado para sentir a energia da Ibiapaba -->
+    <div class="section-card">
+        <h3><i class="fas fa-baby-carriage"></i> Primeiros Passos <span class="badge-nature">Infantil</span></h3>
+        <div class="botoes">
+            <button onclick="mostrarConteudoEstatico(conteudoInfantil1, this, 'resultadoInfantil')"><i class="fas fa-seedling"></i> Vivência na Serra</button>
+            <button onclick="mostrarConteudoEstatico(conteudoInfantil2, this, 'resultadoInfantil')"><i class="fas fa-calendar-alt"></i> Rotina & Encantos</button>
+        </div>
+        <div id="resultadoInfantil" class="resultado"></div>
+    </div>
+
+    <!-- CARD 2: Ensino Fundamental -->
+    <div class="section-card">
+        <h3><i class="fas fa-hiking"></i> Jornada do Conhecimento <span class="badge-nature">Fundamental</span></h3>
+        <div class="botoes">
+            <button onclick="mostrarConteudoEstatico(conteudoFundamental1, this, 'resultadoFundamental')"><i class="fas fa-leaf"></i> Metodologia Serrana</button>
+            <button onclick="mostrarConteudoEstatico(conteudoFundamental2, this, 'resultadoFundamental')"><i class="fas fa-school"></i> Estrutura & Natureza</button>
+        </div>
+        <div id="resultadoFundamental" class="resultado"></div>
+    </div>
+
+    <!-- CARD 3: AEE - Inclusão e cuidado -->
+    <div class="section-card">
+        <h3><i class="fas fa-hands-helping"></i> Acolhimento sem Fronteiras <span class="badge-nature">AEE</span></h3>
+        <div class="botoes">
+            <button onclick="mostrarConteudoEstatico(conteudoAEE1, this, 'resultadoAEE')"><i class="fas fa-universal-access"></i> Cuidado Especializado</button>
+            <button onclick="mostrarConteudoEstatico(conteudoAEE2, this, 'resultadoAEE')"><i class="fas fa-heart"></i> Inclusão na Ibiapaba</button>
+        </div>
+        <div id="resultadoAEE" class="resultado"></div>
+    </div>
+
+    <!-- CARD 4: EJA -->
+    <div class="section-card">
+        <h3><i class="fas fa-chalkboard-user"></i> Saberes da Serra <span class="badge-nature">EJA</span></h3>
+        <div class="botoes">
+            <button onclick="mostrarConteudoEstatico(conteudoEJA1, this, 'resultadoEJA')"><i class="fas fa-graduation-cap"></i> Segunda Chance</button>
+            <button onclick="mostrarConteudoEstatico(conteudoEJA2, this, 'resultadoEJA')"><i class="fas fa-moon"></i> Noite de Oportunidades</button>
+        </div>
+        <div id="resultadoEJA" class="resultado"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <i class="fas fa-mountain-sun"></i> FVS - Serra da Ibiapaba | Natureza, educação e pertencimento <br>
+        <i class="fas fa-map-pin"></i>  Centro - Ibiapaba/CE  •  <i class="fas fa-phone-alt"></i> (88) 9 9999-1234 <br>
+        <span style="font-size:0.8rem;"> <i class="fas fa-copyright"></i> 2025 — A MELHOR experiência da Serra </span>
+    </div>
+</footer>
+
+<script>
+    // Controle de UI igual ao original mas com identidade FVS
+    let botaoAtivo = null;
+    let resultadoAtivo = null;
+
+    function limparBotoes() {
+        document.querySelectorAll("button").forEach(btn => {
+            btn.classList.remove("ativo");
+        });
+    }
+
+    function mostrarConteudoEstatico(conteudoHtml, botao, idResultado) {
+        const resultado = document.getElementById(idResultado);
+
+        if (botaoAtivo === botao) {
+            botao.classList.remove("ativo");
+            resultado.innerHTML = "";
+            botaoAtivo = null;
+            resultadoAtivo = null;
+            return;
+        }
+
+        if (resultadoAtivo) {
+            resultadoAtivo.innerHTML = "";
+        }
+
+        limparBotoes();
+        botao.classList.add("ativo");
+        botaoAtivo = botao;
+        resultadoAtivo = resultado;
+        resultado.innerHTML = conteudoHtml;
+    }
+
+    // --------------------------------------------------------------
+    // CONTEÚDOS COM A IDENTIDADE "SERRA DA IBIAPABA" + FVS
+    // mantendo informações educacionais mas com tom acolhedor e regional
+    // --------------------------------------------------------------
+
+    // INFANTIL 1 - Vivência na Serra
+    const conteudoInfantil1 = `
+        <div class="static-content">
+            <h4><i class="fas fa-tree"></i> Vivência na Serra da Ibiapaba</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%233C7840'/%3E%3Ccircle cx='120' cy='130' r='35' fill='%23E6B422'/%3E%3Ctext x='300' y='160' text-anchor='middle' fill='white' font-size='22' font-weight='bold'%3EFVS - Natureza e Infância%3C/text%3E%3C/svg%3E" style="max-width:100%; border-radius:24px;">
+            <p>Na FVS, a Educação Infantil mergulha na cultura e biodiversidade da Ibiapaba. Crianças de 0 a 5 anos exploram espaços ao ar livre, horta educativa e contato com elementos naturais que despertam a curiosidade.</p>
+            <h4><i class="fas fa-feather"></i> Nossos diferenciais:</h4>
+            <ul><li>🌿 Quintal da serra: aulas sensoriais ao ar livre</li><li>🎨 Ateliê de criação com materiais naturais</li><li>🍃 Alimentação orgânica e regional</li><li>👩‍🏫 Educadores que valorizam as raízes locais</li></ul>
+        </div>
+    `;
+
+    // INFANTIL 2 - Rotina & Encantos
+    const conteudoInfantil2 = `
+        <div class="static-content">
+            <h4><i class="fas fa-cloud-sun"></i> Rotina que inspira</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%234B9F8C'/%3E%3Ctext x='300' y='150' text-anchor='middle' fill='white' font-size='20'%3ERitmo da serra%3C/text%3E%3C/svg%3E" style="max-width:100%; border-radius:24px;">
+            <p><strong>🌄 Horários integrados à natureza:</strong> Matutino: 7h30 às 11h30 | Vespertino: 13h às 17h | Integral com trilhas ecológicas.</p>
+            <h4><i class="fas fa-drumstick-bite"></i> Atividades exclusivas:</h4>
+            <p>Contação de histórias indígenas, passeios monitorados nas reservas da Ibiapaba, musicalização com instrumentos típicos e oficina de culinária com frutas da estação.</p>
+            <p><strong>🌟 "Acolhimento que reflete a alma da serra"</strong> — Matrículas abertas para novos pequenos exploradores!</p>
+        </div>
+    `;
+
+    // FUNDAMENTAL 1 - Metodologia Serrana
+    const conteudoFundamental1 = `
+        <div class="static-content">
+            <h4><i class="fas fa-mountain"></i> Metodologia ativa com essência da Ibiapaba</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%232C6E3C'/%3E%3Cpolygon points='100,160 200,80 300,160 250,200 150,200' fill='%23E6B422' opacity='0.7'/%3E%3Ctext x='400' y='150' fill='white' font-size='18'%3EFVS - aprendizagem viva%3C/text%3E%3C/svg%3E">
+            <p>No Ensino Fundamental (1º ao 9º ano), unimos projeto de vida e protagonismo. Nossa proposta interdisciplinar utiliza a Serra da Ibiapaba como laboratório vivo: estudos do solo, clima e histórias locais.</p>
+            <h4><i class="fas fa-lightbulb"></i> Pilares educacionais:</h4>
+            <ul><li>🌎 Educação climática e sustentabilidade</li><li>📡 Tecnologia e robótica com foco em soluções sustentáveis</li><li>📖 Valorização da cultura cariri e ibiapabana</li><li>🏅 Preparação para olimpíadas do conhecimento</li></ul>
+        </div>
+    `;
+
+    // FUNDAMENTAL 2 - Estrutura & Natureza
+    const conteudoFundamental2 = `
+        <div class="static-content">
+            <h4><i class="fas fa-building"></i> Estrutura que abraça o saber</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%23C27E3A'/%3E%3Crect x='230' y='140' width='40' height='80' fill='%23F5F2E6'/%3E%3Ctext x='300' y='110' fill='white' font-size='20'%3EEspaços FVS%3C/text%3E%3C/svg%3E">
+            <ul><li>📚 Biblioteca "Serra das Letras" com acervo regional</li><li>🔬 Laboratório de Ciências e observatório natural</li><li>🌳 Trilha ecológica dentro do campus</li><li>📱 Salas imersivas e lousas digitais</li><li>🏀 Quadra poliesportiva com vista para as montanhas</li></ul>
+            <p><strong>Resultados:</strong> Alunos protagonistas em feiras de ciência e alto índice de aprovação em vestibulares.</p>
+        </div>
+    `;
+
+    // AEE 1 - Cuidado Especializado
+    const conteudoAEE1 = `
+        <div class="static-content">
+            <h4><i class="fas fa-hand-sparkles"></i> AEE - Atendimento Educacional Especializado</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%234F7A5B'/%3E%3Ctext x='300' y='150' fill='white' font-size='18'%3ETodos os caminhos florescem%3C/text%3E%3C/svg%3E">
+            <p>O AEE da FVS é referência em inclusão, eliminando barreiras para estudantes com deficiência, TEA, altas habilidades e transtornos globais. Nossa equipe multidisciplinar atua em parceria com famílias e comunidade serrana.</p>
+            <h4><i class="fas fa-star-of-life"></i> Serviços integrados:</h4>
+            <ul><li>🧩 Salas de recursos multifuncionais</li><li>🖥️ Tecnologia assistiva e comunicação alternativa</li><li>🌻 Psicomotricidade relacional na natureza</li><li>📋 Plano de desenvolvimento individual (PDI)</li></ul>
+        </div>
+    `;
+
+    // AEE 2 - Inclusão na Ibiapaba
+    const conteudoAEE2 = `
+        <div class="static-content">
+            <h4><i class="fas fa-hands-clapping"></i> Inclusão é compromisso da serra</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%23E6B422'/%3E%3Ctext x='300' y='150' fill='%232C6E3C' font-size='20'%3EJuntos pela diversidade%3C/text%3E%3C/svg%3E">
+            <p><strong>Público atendido:</strong> deficiência física, visual, auditiva, intelectual, TEA, superdotação. Atendimento no contraturno com horários flexíveis e acompanhamento personalizado.</p>
+            <p><i class="fas fa-tree"></i> <strong>Inclusão além da sala:</strong> Projetos integrados com a comunidade da Ibiapaba, passeios adaptados, formação continuada para educadores e parceria com famílias.</p>
+            <p>✨ "A FVS acredita que cada indivíduo tem um jeito único de aprender e brilhar."</p>
+        </div>
+    `;
+
+    // EJA 1 - Segunda Chance
+    const conteudoEJA1 = `
+        <div class="static-content">
+            <h4><i class="fas fa-graduation-cap"></i> Educação de Jovens e Adultos: novos horizontes</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%23415D3A'/%3E%3Ctext x='300' y='150' fill='%23FADB67' font-size='19'%3ESaberes que transformam%3C/text%3E%3C/svg%3E">
+            <p>A EJA da FVS oferece oportunidade para jovens e adultos que desejam retomar os estudos em um ambiente acolhedor e conectado com a realidade da região. Metodologia prática, valorização da experiência de vida e currículo adaptado.</p>
+            <h4><i class="fas fa-layer-group"></i> Níveis de formação:</h4>
+            <ul><li>📘 EJA I: 1ª a 5ª etapa (alfabetização e fundamental I) – 2 anos</li><li>📗 EJA II: 6ª a 9ª etapa (fundamental II) – 2 anos</li><li>🌱 Certificação com reconhecimento em todo território nacional</li></ul>
+        </div>
+    `;
+
+    // EJA 2 - Noite de Oportunidades
+    const conteudoEJA2 = `
+        <div class="static-content">
+            <h4><i class="fas fa-moon-stars"></i> Noite na serra: horários especiais e documentação</h4>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 280'%3E%3Crect width='600' height='280' fill='%23335A3B'/%3E%3Ccircle cx='480' cy='70' r='20' fill='%23F5E56B'/%3E%3Ctext x='150' y='150' fill='white' font-size='18'%3EEJA - novas rotas%3C/text%3E%3C/svg%3E">
+            <p><strong>⏰ Horário diferenciado:</strong> Segunda a Sexta, 19h às 22h30. Ambiente acolhedor, com infraestrutura noturna e equipe preparada.</p>
+            <h4><i class="fas fa-folder-open"></i> Documentos para matrícula:</h4>
+            <ul><li>📄 RG, CPF e comprovante de residência</li><li>🎓 Histórico escolar (se disponível) ou declaração</li><li>📸 Foto 3x4</li></ul>
+            <p><strong><i class="fas fa-feather"></i> Matrículas contínuas!</strong> Construa seu futuro conosco na terra da Ibiapaba.</p>
+        </div>
+    `;
+
+</script>
+
+</body>
+</html>
